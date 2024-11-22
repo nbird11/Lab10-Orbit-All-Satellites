@@ -132,7 +132,12 @@
     <ClCompile Include="Lab10.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="satellite.cpp" />
+    <ClCompile Include="satelliteDragon.cpp" />
     <ClCompile Include="satelliteGPS.cpp" />
+    <ClCompile Include="satelliteHubble.cpp" />
+    <ClCompile Include="satelliteShip.cpp" />
+    <ClCompile Include="satelliteSputnik.cpp" />
+    <ClCompile Include="satelliteStarlink.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="testSatellite.cpp" />
     <ClCompile Include="testSatelliteGPS.cpp" />
@@ -145,7 +150,12 @@
     <ClInclude Include="angle.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="satellite.h" />
+    <ClInclude Include="satelliteDragon.h" />
     <ClInclude Include="satelliteGPS.h" />
+    <ClInclude Include="satelliteHubble.h" />
+    <ClInclude Include="satelliteShip.h" />
+    <ClInclude Include="satelliteSputnik.h" />
+    <ClInclude Include="satelliteStarlink.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />

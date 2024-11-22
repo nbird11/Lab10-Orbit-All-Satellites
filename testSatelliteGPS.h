@@ -4,8 +4,8 @@
  * Author:
  *    Brock Hoskins, Jared Davey, Nathan Bird
  * Summary:
- *    Test cases to ensure the satellite functions completely as
- *    a base class.
+ *    Test cases to ensure the GPS functions completely as a derived
+ *    class off of Satellite.
  **********************************************************************/
 #pragma once
 

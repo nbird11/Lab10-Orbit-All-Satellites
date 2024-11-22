@@ -1,10 +1,10 @@
 /***********************************************************************
  * Header File:
- *    GPS
+ *    Starlink
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
- *    The GPS satellite which inherits from the base Satellite
+ *    The starlink satellite which inherits from the base Satellite
  ************************************************************************/
 
 #pragma once
@@ -16,20 +16,20 @@ class Position;
 class Velocity;
 class ogstream;
 
-class TestGPS;
+class TestStarlink;
 
 /***************************************************
- * GPS
- * The GPS type derived from Satellite
+ * Starlink
+ * The Starlink type derived from Satellite
  ***************************************************/
-class GPS : public Satellite
+class Starlink : public Satellite
 {
 public:
-   friend TestGPS;
+   friend TestStarlink;
 
-   GPS() : Satellite() { radius = 12.0; }
-   GPS(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 12.0; }
-   ~GPS() { }
+   Starlink() : Satellite() { radius = 6.0; }
+   Starlink(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 6.0; }
+   ~Starlink() { }
 
    void draw(ogstream& gout) override;
    void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }

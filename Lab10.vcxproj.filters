@@ -51,6 +51,21 @@
     <ClCompile Include="velocity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="satelliteHubble.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteDragon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteShip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteStarlink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteSputnik.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acceleration.h">
@@ -99,6 +114,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="velocity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteHubble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteDragon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteShip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteStarlink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteSputnik.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

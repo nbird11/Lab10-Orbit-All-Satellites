@@ -67,8 +67,7 @@ public:
    void setRight()                 { radians = M_PI_2; }
    void setLeft()                  { radians = 3 * M_PI_2; }
    void reverse()                  { radians = normalize(radians + M_PI); }
-   Angle& add(double delta)        { radians = 
-	                                 normalize(radians + delta); return *this;}
+   Angle& add(double delta)        { radians = normalize(radians + delta); return *this;}
 
    // set based on the components
    //         dx

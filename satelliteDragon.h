@@ -1,12 +1,11 @@
 /***********************************************************************
  * Header File:
- *    GPS
+ *    Dragon
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
- *    The GPS satellite which inherits from the base Satellite
+ *    The unbroken Dragon derived class
  ************************************************************************/
-
 #pragma once
 #include "satellite.h"
 #include <cassert>
@@ -16,22 +15,21 @@ class Position;
 class Velocity;
 class ogstream;
 
-class TestGPS;
+class TestCrewDragon;
 
 /***************************************************
- * GPS
- * The GPS type derived from Satellite
+ * CrewDragon
+ * The Starlink type derived from Satellite
  ***************************************************/
-class GPS : public Satellite
+class CrewDragon : public Satellite
 {
 public:
-   friend TestGPS;
+   friend TestCrewDragon;
 
-   GPS() : Satellite() { radius = 12.0; }
-   GPS(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 12.0; }
-   ~GPS() { }
+   CrewDragon() : Satellite() { radius = 7.0; }
+   CrewDragon(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 7.0; }
+   ~CrewDragon() { }
 
    void draw(ogstream& gout) override;
    void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
 };
-

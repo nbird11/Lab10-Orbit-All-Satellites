@@ -1,10 +1,10 @@
 /***********************************************************************
  * Header File:
- *    GPS
+ *    Sputnik
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
- *    The GPS satellite which inherits from the base Satellite
+ *    The unbroken Sputnik derived class
  ************************************************************************/
 
 #pragma once
@@ -16,22 +16,20 @@ class Position;
 class Velocity;
 class ogstream;
 
-class TestGPS;
-
 /***************************************************
- * GPS
- * The GPS type derived from Satellite
+ * Sputnik
+ * The Sputnik type derived from Satellite
  ***************************************************/
-class GPS : public Satellite
+class Sputnik : public Satellite
 {
 public:
-   friend TestGPS;
-
-   GPS() : Satellite() { radius = 12.0; }
-   GPS(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 12.0; }
-   ~GPS() { }
+   Sputnik() : Satellite() { radius = 4.0; }
+   Sputnik(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 4.0; }
+   ~Sputnik() { }
 
    void draw(ogstream& gout) override;
-   void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
+   void destroy(const std::vector<Satellite*>& satellites) override {
+      assert(NOT_IMPLEMENTED);
+   }
 };
 

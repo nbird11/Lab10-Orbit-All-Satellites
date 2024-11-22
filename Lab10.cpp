@@ -14,15 +14,21 @@
 #include "position.h"   // for POSITION
 #include "satellite.h"
 #include "satelliteGPS.h"
+#include "satelliteDragon.h"
+#include "satelliteHubble.h"
+#include "satelliteShip.h"
+#include "satelliteSputnik.h"
+#include "satelliteStarlink.h"
 #include "test.h"
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "uiInteract.h" // for INTERFACE
 #include "velocity.h"
+#include <typeinfo>
 #include <vector>
 using namespace std;
 
 #define PI           3.14159265358979
-#define ORBITAL_VEL  3100            // m/s
+#define ORBITAL_VEL  3100            // m/s DELETEME
 
 
 /*************************************************************************
@@ -35,7 +41,20 @@ public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight)
    {
-      satellites.push_back(new GPS(Position(0.0, 42164000.0), Velocity(-ORBITAL_VEL, 0.0)));
+      satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), Velocity(2050.0, 2684.68)));
+
+      satellites.push_back(new GPS(Position(0.0, 26560000.0), Velocity(-3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), Velocity(1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), Velocity(-1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(0.0, -26560000.0), Velocity(3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(-23001634.72, -13280000.0), Velocity(1940.00, -3360.18)));
+      satellites.push_back(new GPS(Position(-23001634.72, 13280000.0), Velocity(-1940.00, -3360.18)));
+
+      satellites.push_back(new Hubble(Position(0.0, 42164000.0), Velocity(-3100, 0.0)));
+
+      satellites.push_back(new CrewDragon(Position(0.0, 8000000.0), Velocity(-7900.0, 0.0)));
+
+      satellites.push_back(new Starlink(Position(0.0, -13020000.0), Velocity(5800.0, 0.0)));
 
       ptStar.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       ptStar.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
@@ -45,6 +64,7 @@ public:
    }
 
    vector<Satellite*> satellites;
+   Ship ship;
    Position ptStar;
    Position ptUpperRight;
 
@@ -69,6 +89,8 @@ void callBack(const Interface* pUI, void* p)
    //
    // perform all the game logic
    //
+   
+   // TODO move into demo
    // rotate the earth
    double td = 24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/;
    double tpf = td / 30.0 /*frameRate*/;
@@ -81,8 +103,13 @@ void callBack(const Interface* pUI, void* p)
    // 
    // move
    //
+   pDemo->ship.input(pUI);
+   pDemo->ship.move(tpf);
    for (Satellite* sat : pDemo->satellites)
+   {
       sat->move(tpf);
+   }
+
 
    //
    // draw everything
@@ -91,6 +118,7 @@ void callBack(const Interface* pUI, void* p)
 
    for (Satellite* sat : pDemo->satellites)
       sat->draw(gout);
+   pDemo->ship.draw(gout);
 
    // draw a single star
    gout.drawStar(pDemo->ptStar, pDemo->phaseStar);

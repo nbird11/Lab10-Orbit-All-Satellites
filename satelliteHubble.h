@@ -1,10 +1,10 @@
 /***********************************************************************
  * Header File:
- *    GPS
+ *    Hubble
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
- *    The GPS satellite which inherits from the base Satellite
+ *    The unbroken Hubble derived class
  ************************************************************************/
 
 #pragma once
@@ -16,20 +16,16 @@ class Position;
 class Velocity;
 class ogstream;
 
-class TestGPS;
+class TestHubble;
 
-/***************************************************
- * GPS
- * The GPS type derived from Satellite
- ***************************************************/
-class GPS : public Satellite
+class Hubble : public Satellite
 {
 public:
-   friend TestGPS;
+   friend TestHubble;
 
-   GPS() : Satellite() { radius = 12.0; }
-   GPS(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 12.0; }
-   ~GPS() { }
+   Hubble() : Satellite() { radius = 10.0; }
+   Hubble(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 10.0; }
+   ~Hubble() { }
 
    void draw(ogstream& gout) override;
    void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }

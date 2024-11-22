@@ -1,14 +1,14 @@
 /***********************************************************************
  * Header File:
- *    GPS
+ *    Ship
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
- *    The GPS satellite which inherits from the base Satellite
+ *    The Ship controlled by the player
  ************************************************************************/
-
 #pragma once
 #include "satellite.h"
+#include "uiInteract.h"
 #include <cassert>
 #include <vector>
 
@@ -16,22 +16,28 @@ class Position;
 class Velocity;
 class ogstream;
 
-class TestGPS;
+class TestShip;
 
 /***************************************************
- * GPS
- * The GPS type derived from Satellite
+ * Ship
+ * The Starlink type derived from Satellite
  ***************************************************/
-class GPS : public Satellite
+class Ship : public Satellite
 {
 public:
-   friend TestGPS;
+   friend TestShip;
 
-   GPS() : Satellite() { radius = 12.0; }
-   GPS(const Position& pos, const Velocity& vel) : Satellite(pos, vel) { radius = 12.0; }
-   ~GPS() { }
+   Ship();
+   ~Ship() { }
+
+   void input(const Interface* pUI);
+   void addThrust();
+   //void move(double time) override;
 
    void draw(ogstream& gout) override;
    void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
+private:
+   bool isThrusting;
+   double thrustDuration;
 };
 
