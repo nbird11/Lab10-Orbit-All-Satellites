@@ -1,0 +1,14 @@
+﻿  acceleration.cpp
+  angle.cpp
+  Lab10.cpp
+  position.cpp
+  satellite.cpp
+  satelliteGPS.cpp
+  test.cpp
+  testSatellite.cpp
+  testSatelliteGPS.cpp
+  uiDraw.cpp
+  uiInteract.cpp
+  velocity.cpp
+  Generating Code...
+  Lab10.vcxproj -> C:\Users\natha\School\7_Fall24\1_CSE231 (NhrtncDsgn)\Lab10 Orbit All Satellites\x64\Debug\Lab10.exe
