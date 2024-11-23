@@ -65,7 +65,7 @@ double Satellite::heightAboveEarth() const
    double x = pos.getMetersX();
    double y = pos.getMetersY();
    double height = sqrt(x * x + y * y) - RADIUS_EARTH;
-   assert(height > 0);  // Height is 0 when touching surface of earth.
+   //assert(height > 0);  // Height is 0 when touching surface of earth.
    return height;
 }
 
@@ -101,7 +101,7 @@ double Satellite::directionOfPull() const
  * SATELLITE : MOVE
  * Update the satellite's position in space
  ***************************************************/
-void Satellite::move(double deltaTime)
+void Satellite::move(double time)
 {
    double gravity = getGravity();
 
@@ -110,7 +110,14 @@ void Satellite::move(double deltaTime)
    double ddy = gravity * cos(angle);
    Acceleration accel(ddx, ddy);
 
-   velocity.add(accel, deltaTime / 2.0);
-   pos.add(velocity, accel, deltaTime);
-   velocity.add(accel, deltaTime / 2.0);
+   velocity.add(accel, time / 2.0);
+   pos.add(velocity, accel, time);
+   velocity.add(accel, time / 2.0);
+
+   /*
+   Figure out the acceleration of Thrust
+   Figure out acceleration of gravity
+   v_t = v_0 + a(t)
+   v_t = v_0 + (ddx_thrust + ddx_gravity, ddy_thrust + ddy_gravity)(t)
+   */
 }

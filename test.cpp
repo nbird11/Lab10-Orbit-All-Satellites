@@ -13,6 +13,7 @@
 #include "testPosition.h"
 #include "testSatellite.h"
 #include "testSatelliteGPS.h"
+#include "testSatelliteShip.h"
 #include "testVelocity.h"
 
 #ifdef _WIN32
@@ -40,4 +41,5 @@ void testRunner()
    TestAngle().run();
    TestSatellite().run();
    TestGPS().run();
+   TestShip().run();
 }

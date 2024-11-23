@@ -30,14 +30,14 @@ public:
    Ship();
    ~Ship() { }
 
-   void input(const Interface* pUI);
-   void addThrust();
+   void input(const Interface* pUI, double time);
+   void addThrust(double time);
+   void move(double time) override;
    //void move(double time) override;
 
    void draw(ogstream& gout) override;
    void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
 private:
    bool isThrusting;
-   double thrustDuration;
 };
 

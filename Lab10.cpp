@@ -23,7 +23,6 @@
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "uiInteract.h" // for INTERFACE
 #include "velocity.h"
-#include <typeinfo>
 #include <vector>
 using namespace std;
 
@@ -39,7 +38,8 @@ class Demo
 {
 public:
    Demo(Position ptUpperRight) :
-      ptUpperRight(ptUpperRight)
+      ptUpperRight(ptUpperRight),
+      timePerFrame(24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ / 30.0 /*frameRate*/)
    {
       satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), Velocity(2050.0, 2684.68)));
 
@@ -68,6 +68,8 @@ public:
    Position ptStar;
    Position ptUpperRight;
 
+   double timePerFrame;
+
    unsigned char phaseStar;
 
    double angleEarth;
@@ -89,13 +91,9 @@ void callBack(const Interface* pUI, void* p)
    //
    // perform all the game logic
    //
-   
-   // TODO move into demo
-   // rotate the earth
-   double td = 24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/;
-   double tpf = td / 30.0 /*frameRate*/;
 
-   double rpf = -(2 * PI / 30.0 /*frameRate*/) * (td / 86400 /*secondsPerDay*/);
+   // rotate the earth
+   double rpf = -(2 * PI / 30.0 /*frameRate*/) * (pDemo->timePerFrame*30.0 / 86400 /*secondsPerDay*/);
 
    pDemo->angleEarth += rpf;
    pDemo->phaseStar++;
@@ -103,13 +101,11 @@ void callBack(const Interface* pUI, void* p)
    // 
    // move
    //
-   pDemo->ship.input(pUI);
-   pDemo->ship.move(tpf);
+   pDemo->ship.input(pUI, pDemo->timePerFrame);
    for (Satellite* sat : pDemo->satellites)
    {
-      sat->move(tpf);
+      sat->move(pDemo->timePerFrame);
    }
-
 
    //
    // draw everything

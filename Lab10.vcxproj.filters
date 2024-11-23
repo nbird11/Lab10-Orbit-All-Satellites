@@ -39,9 +39,6 @@
     <ClCompile Include="testSatellite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testSatelliteGPS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="uiDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -129,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="satelliteSputnik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testSatelliteShip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

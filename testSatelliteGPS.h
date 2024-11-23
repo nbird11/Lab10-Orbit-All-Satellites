@@ -1,15 +1,15 @@
 /***********************************************************************
- * Source File:
+ * Header File:
  *    TEST GPS
  * Author:
  *    Brock Hoskins, Jared Davey, Nathan Bird
  * Summary:
- *    Test cases to ensure the GPS functions completely as a derived
- *    class off of Satellite.
- **********************************************************************/
+ *    Tests for the GPS
+ ************************************************************************/
 #pragma once
 
 #include "unitTest.h"
+#include "satelliteGPS.h"
 
 class TestGPS : public UnitTest
 {
@@ -19,4 +19,3 @@ public:
       report("GPS");
    }
 };
-

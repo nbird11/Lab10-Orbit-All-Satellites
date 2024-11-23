@@ -52,7 +52,7 @@ public:
    virtual void destroy(const std::vector<Satellite*>& satellites) = 0;
    virtual void input(const Interface* pUI) {}
    
-private:
+protected:
    double heightAboveEarth() const;
    double gravityAtHeight(double h) const;
    double getGravity() const;
