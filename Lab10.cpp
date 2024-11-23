@@ -44,9 +44,9 @@ public:
       satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), Velocity(2050.0, 2684.68)));
 
       satellites.push_back(new GPS(Position(0.0, 26560000.0), Velocity(-3880.0, 0.0)));
-      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), Velocity(1940.00, 3360.18)));
-      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), Velocity(-1940.00, 3360.18)));
       satellites.push_back(new GPS(Position(0.0, -26560000.0), Velocity(3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), Velocity(-1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(23001634.72, -13280000.0), Velocity(1940.00, 3360.18)));
       satellites.push_back(new GPS(Position(-23001634.72, -13280000.0), Velocity(1940.00, -3360.18)));
       satellites.push_back(new GPS(Position(-23001634.72, 13280000.0), Velocity(-1940.00, -3360.18)));
 
@@ -69,9 +69,7 @@ public:
    Position ptUpperRight;
 
    double timePerFrame;
-
    unsigned char phaseStar;
-
    double angleEarth;
 };
 
